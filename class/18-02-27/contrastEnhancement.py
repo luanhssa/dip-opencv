@@ -35,7 +35,7 @@ def nothing(x):
 img = cv2.imread('../../img/tungsten.tif', cv2.IMREAD_GRAYSCALE)
 img2 = np.zeros(img.shape, dtype=np.float64)
 
-E = 1
+E = 10.0
 k0 = 0.4
 k1 = 0.02
 k2 = 0.4
@@ -47,17 +47,17 @@ std_local = 0
 
 cv2.namedWindow("img", cv2.WINDOW_KEEPRATIO)
 cv2.namedWindow("img2", cv2.WINDOW_KEEPRATIO)
-cv2.createTrackbar("E", "img2", E, 10, nothing)
+# cv2.createTrackbar("E", "img2", E, 10, nothing)
 
 while True:
     (avg_local, std_global) = cv2.meanStdDev(img)
 
+    # E = cv2.getTrackbarPos("E", "img2")
     for x in range(img.shape[0]):
         for y in range(img.shape[1]):
-            (avg_global, std_local) = cv2.meanStdDev(img[x-wsize:x+wsize][y-wsize:y+wsize])
+            (avg_global, std_local) = cv2.meanStdDev(img[x-wsize:x+wsize, y-wsize:y+wsize])
     intensity = img[:]
     img2[:] = (E*intensity) if (avg_local <= k0*avg_global and k1*std_global <= std_local and std_local <= k2*std_global) else intensity
-    E = cv2.getTrackbarPos("E", "img2")
 
     cv2.normalize(img2, img2, 1, 0, cv2.NORM_MINMAX)
 

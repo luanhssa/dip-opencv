@@ -8,16 +8,16 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    /*
+    //*
     int thresh = 127;
     Mat img = imread("../dog.jpg", IMREAD_GRAYSCALE);
     Mat bin;
     namedWindow("bin", WINDOW_KEEPRATIO);
 
-    createTrackbar("thresh", "img", &thresh, 255, 0);
+    createTrackbar("thresh", "bin", &thresh, 255, 0);
 
     img = img > 127 & img < 150;
-    imshow("dog", img);
+    //imshow("dog", img);
 
     for(;;) {
         bin = img > thresh;
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     }
     //  */
 
-    //*
+    /*
     Mat img = Mat::zeros(3, 3, CV_8U);
     cout << img << endl;
     // */

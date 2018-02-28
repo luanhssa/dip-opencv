@@ -19,4 +19,8 @@ Pollen Washedout | Histogram Equalizer
 
 ---
 
-##  
+## Contrast Stretching
+
+---
+
+## 
