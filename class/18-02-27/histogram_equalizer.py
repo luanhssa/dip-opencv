@@ -8,7 +8,7 @@ def nothing(x):
     pass
 
 
-img = cv2.imread('./pollen_washedout.tif', cv2.IMREAD_GRAYSCALE)
+img = cv2.imread('../../img/pollen_washedout.tif', cv2.IMREAD_GRAYSCALE)
 img2 = np.zeros(img.shape, dtype=np.float64)
 
 cv2.namedWindow("img", cv2.WINDOW_KEEPRATIO)
